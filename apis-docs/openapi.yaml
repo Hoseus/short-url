@@ -1,0 +1,56 @@
+openapi: 3.0.1
+paths:
+  /v1/short-url/{id}:
+    get:
+      operationId: findById
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShortUrlDto'
+  /v1/short-url:
+    post:
+      operationId: shortenUrl
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShortenUrlDto'
+        required: true
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ShortUrlDto'
+components:
+  schemas:
+    ShortUrlDto:
+      type: object
+      properties:
+        short_url:
+          type: string
+          writeOnly: true
+        original_url:
+          type: string
+          writeOnly: true
+        id:
+          type: string
+        shortUrl:
+          type: string
+        originalUrl:
+          type: string
+    ShortenUrlDto:
+      type: object
+      properties:
+        url:
+          type: string

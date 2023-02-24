@@ -83,11 +83,11 @@ allOpen {
 
 tasks.withType<io.swagger.v3.plugins.gradle.tasks.ResolveTask> {
     outputFileName = "openapi"
-    outputFormat = io.swagger.v3.plugins.gradle.tasks.ResolveTask.Format.JSONANDYAML
+    outputFormat = io.swagger.v3.plugins.gradle.tasks.ResolveTask.Format.YAML
     prettyPrint = true
     classpath = sourceSets["main"].runtimeClasspath
     resourcePackages = setOf("com.hoseus")
-    outputDir = file("docs")
+    outputDir = file("apis-docs")
 }
 
 jacoco {

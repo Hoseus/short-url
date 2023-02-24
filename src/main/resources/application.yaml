@@ -1,0 +1,18 @@
+quarkus:
+  devservices:
+    enabled: false
+  application:
+    name: "short-url"
+  spring-cloud-config:
+    enabled: true
+    url: "http://localhost:8888"
+    label: main
+    fail-fast: true
+  opentelemetry:
+    enabled: true
+    tracer:
+      exporter:
+        otlp:
+          enabled: false
+  datasource:
+    db-kind: mysql
